@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finances</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Personal Finances</h1>
+        <button id="toggle-theme">Dark Mode</button>
+
+        <!-- Actual Balance -->
+        <div class="balance">
+            <h2>Balance: <span id="balance">€0.00</span></h2>
+        </div>
+    </div>
+       
+    <div class="container">
+        <div class="card section form">
+            <!-- Form to add Transactions -->
+            <div class="form">
+                <input type="text" id="description" placeholder="Description" required>
+                <input type="number" id="amount" placeholder="Amount" required>
+                <select id="type">
+                    <option value="income">Income</option>
+                    <option value="spending">Spending</option>
+                </select>
+                <button onclick="addTransaction()">Add</button>
+            </div>
+        </div>
+
+        <div class="card section historial">
+            <h2>Historial de Transacciones</h2>
+            <!-- Filters -->
+            <div class="filters">
+                <label for="filter-type">Filter by type:</label>
+                <select id="filter-type">
+                    <option value="all">All</option>
+                    <option value="income">Incomes</option>
+                    <option value="spending">Spendings</option>
+                </select>
+                <label for="filter-date">Filter by date:</label>
+                <input type="date" id="filter-date">
+            </div>
+            
+            <!-- Transactions List -->
+            <ul id="transactions"></ul>
+        </div>
+
+        <div class="card section graphics">
+            <!-- Stadistics and graphics -->
+             <h2>Stadistics</h2>
+            <div class="stadistics">
+                <canvas id="cakeGraphic"></canvas>
+                <canvas id="barGraphic"></canvas>
+            </div>
+        </div>
+
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
